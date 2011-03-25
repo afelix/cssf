@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>CSS formatter</title>
+    <link rel="stylesheet" href="cssf.css" type="text/css">
+</head>
+<body>
+    <script src="lib/cssp.js"></script>
+    <script src="lib/cssf.js"></script>
+
+    <textarea class="csstxt" id="csssrc"></textarea>
+    <input type="button" value="format" id="format" />
+    <textarea class="csstxt" id="cssdst"></textarea>
+
+    <script>
+        var csssrc = document.getElementById('csssrc'),
+            cssdst = document.getElementById('cssdst');
+
+        document.getElementById('format').onclick = function() {
+            cssdst.value = $cssf.format($cssp.parse(csssrc.value).nodes, '');
+        };
+    </script>
+
+</body>
+</html>
